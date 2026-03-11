@@ -2,6 +2,6 @@
 test-action:
     act push --job build -s GITHUB_TOKEN=fake --action-offline-mode --container-architecture linux/amd64
 
-# Build CV locally (requires lualatex installed via basictex or mactex)
+# Build CV locally (requires xelatex installed via basictex or mactex)
 build:
-    latexmk -lualatex cv.tex
+    latexmk -xelatex cv.tex

@@ -13,12 +13,44 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Compile CV
-        uses: xu-cheng/latex-action@v3
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v4
         with:
-          root_file: cv.tex
-          latexmk_use_xelatex: true
-          extra_fonts: "./*.otf"
+          packages: >
+            scheme-basic
+            xetex
+            latexmk
+            fontspec
+            xunicode
+            xltxtra
+            realscripts
+            metalogo
+            marvosym
+            tikz
+            pgf
+            xcolor
+            url
+            parskip
+            supertabular
+            titlesec
+            hyperref
+            textpos
+            geometry
+            enumitem
+            tabularx
+            graphics
+            graphicx
+            tools
+            euenc
+
+      - name: Install fonts
+        run: |
+          mkdir -p ~/.local/share/fonts
+          cp *.otf ~/.local/share/fonts/
+          fc-cache -fv
+
+      - name: Compile CV
+        run: latexmk -xelatex cv.tex
 
       - name: Generate tag
         id: tag
