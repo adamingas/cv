@@ -26,7 +26,6 @@ jobs:
             realscripts
             metalogo
             marvosym
-            tikz
             pgf
             xcolor
             url
@@ -37,11 +36,32 @@ jobs:
             textpos
             geometry
             enumitem
-            tabularx
-            graphics
-            graphicx
             tools
             euenc
+            tipa
+            dvipsnames
+            graphics
+            graphics-def
+            graphics-cfg
+            etoolbox
+            kvoptions
+            kvsetkeys
+            kvdefinekeys
+            pdfescape
+            pdftexcmds
+            infwarerr
+            hycolor
+            letltxmacro
+            refcount
+            gettitlestring
+            stringenc
+            intcalc
+            bitset
+            bigintcalc
+            uniquecounter
+            rerunfilecheck
+            ltxcmds
+            iftex
 
       - name: Install fonts
         run: |
@@ -50,7 +70,7 @@ jobs:
           fc-cache -fv
 
       - name: Compile CV
-        run: latexmk -xelatex cv.tex
+        run: latexmk -xelatex -interaction=nonstopmode cv.tex
 
       - name: Generate tag
         id: tag

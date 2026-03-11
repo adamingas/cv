@@ -4,4 +4,8 @@ test-action:
 
 # Build CV locally (requires xelatex installed via basictex or mactex)
 build:
-    latexmk -xelatex cv.tex
+    latexmk -xelatex -outdir=build -interaction=nonstopmode -gg cv.tex
+
+# Clean build artifacts
+clean:
+    rm -rf build
