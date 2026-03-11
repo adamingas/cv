@@ -38,6 +38,7 @@ jobs:
             enumitem
             tools
             tipa
+            greek-fontenc
             graphics
             graphics-def
             graphics-cfg
